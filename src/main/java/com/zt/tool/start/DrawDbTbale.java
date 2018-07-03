@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.filechooser.FileSystemView;
+
 import com.zt.tool.utils.DbUtils;
 
 /**
@@ -15,12 +17,14 @@ import com.zt.tool.utils.DbUtils;
  */
 public class DrawDbTbale {
 
-	private static final String SECHMA_NAME = "haihang-db";
+	private static final String SECHMA_NAME = "coupon";
 
 	private static FileWriter writer;
 
 	public static void main(String[] args) throws Exception {
-		writer = new FileWriter("C:\\Users\\miya17071101\\Desktop\\" + SECHMA_NAME + ".html", false);
+		FileSystemView fsv = FileSystemView.getFileSystemView();
+		String deskPath = fsv.getHomeDirectory().getPath();
+		writer = new FileWriter(deskPath + "\\" + SECHMA_NAME + ".html", false);
 		writeBegin();
 		List<Map<String, String>> list = DbUtils.getTableNames(SECHMA_NAME);
 		writeTableSunmmarize(list);

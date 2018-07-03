@@ -19,7 +19,5 @@ bin
 # idea #
 .idea
 *.iml
-
+*.factorypath
 jdbc.properties
-
-

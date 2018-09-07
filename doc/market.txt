@@ -1,0 +1,8 @@
+open host
+username
+password
+bin
+lcd D:\项目\workspace\CRM-Marketing\marketing-web\target
+cd war
+put marketing.jar
+bye

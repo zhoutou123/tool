@@ -1,23 +1,47 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+*.iws
+*.iml
+*.ipr
+/.idea/
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+### logs ###
+/logs/
+
 *.class
 
 # Package Files #
 *.jar
 *.war
 *.ear
-.project
-.classpath
-.settings
 .pydevproject
 target
 .DS_Store
 
+*/log/
 logs
 *.log
 bin
 
-
 # idea #
 .idea
-*.iml
-*.factorypath
-jdbc.properties
+
+# es #
+/data/

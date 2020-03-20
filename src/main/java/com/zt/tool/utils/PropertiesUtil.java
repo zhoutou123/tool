@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 /**
@@ -18,12 +18,6 @@ public class PropertiesUtil {
 	 */
 	private Properties prop;
 
-	/**
-	 * 通过单例模式获取ReadPropertiesFile对象
-	 */
-	public PropertiesUtil() {
-	}
-
 	private static PropertiesUtil rpf = new PropertiesUtil();
 
 	public static PropertiesUtil getInstance() {
@@ -34,12 +28,11 @@ public class PropertiesUtil {
 	 * 读取文件的路径
 	 * 
 	 * @param url
-	 * @throws UnsupportedEncodingException
 	 */
-	public void setPropertiesDataSource(String url) throws UnsupportedEncodingException {
+	public void setPropertiesDataSource(String url) {
 		prop = new Properties();
 		InputStream in = getClass().getResourceAsStream(url);
-		BufferedReader bf = new BufferedReader(new InputStreamReader(in, "utf-8"));
+		BufferedReader bf = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
 		try {
 			prop.load(bf);
 		} catch (IOException e) {
@@ -87,10 +80,9 @@ public class PropertiesUtil {
 		return Boolean.parseBoolean(prop.getProperty(key));
 	}
 
-	public static void main(String[] args) throws UnsupportedEncodingException {
+	public static void main(String[] args) {
 		PropertiesUtil a = new PropertiesUtil();
 		a.setPropertiesDataSource("/redis.properties");
 		System.out.println(a.getString("redis.getSelect"));
-		;
 	}
 }
